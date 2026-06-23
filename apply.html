@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>RaminDSGN – Strategy Application</title>
+<title>RaminDSGN – Application</title>
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
@@ -11,285 +11,265 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background: black;
   color: white;
+  scroll-behavior: smooth;
 }
 
-/* LOADER */
-.loader {
-  position: fixed;
-  inset: 0;
-  background: black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  transition: opacity 0.8s ease;
-}
-.loader.hide {
-  opacity: 0;
-  pointer-events: none;
-}
-.loader-text {
-  font-size: 12px;
-  letter-spacing: 0.3em;
-  color: rgba(255,255,255,0.6);
-  text-align: center;
-}
-
-/* BG */
+/* Background */
 .video-bg {
   position: fixed;
   inset: 0;
-  object-fit: cover;
   width: 100%;
   height: 100%;
+  object-fit: cover;
   z-index: -2;
 }
+
 .overlay {
   position: fixed;
   inset: 0;
-  background: linear-gradient(180deg, rgba(255,120,0,0.12), rgba(0,0,0,1));
+  background: linear-gradient(180deg, rgba(255,120,0,0.10), rgba(0,0,0,1));
   z-index: -1;
 }
 
-/* INPUTS */
+/* Sections */
+.section {
+  margin-bottom: 60px;
+}
+
+h2 {
+  letter-spacing: 0.25em;
+}
+
+/* Inputs */
 input, textarea, select {
   width: 100%;
-  padding: 18px 20px;
+  padding: 16px 18px;
   border-radius: 8px;
   background: transparent;
   border: 1px solid rgba(255,255,255,0.2);
+  outline: none;
+  transition: 0.3s;
   font-size: 14px;
-}
-
-textarea { min-height: 130px; }
-
-::placeholder {
-  color: rgba(255,255,255,0.4);
 }
 
 input:focus, textarea:focus, select:focus {
   border-color: rgba(255,255,255,0.6);
-  outline: none;
+  background: rgba(255,255,255,0.04);
 }
 
-/* STEPS */
-.step { 
-  display: none; 
-  padding: 10px 0;
+textarea {
+  min-height: 110px;
 }
-.step.active { display: block; }
 
-/* PROGRESS */
-.progress-bar {
-  height: 2px;
-  background: rgba(255,255,255,0.2);
+/* Button */
+button {
+  transition: 0.3s ease;
 }
-.progress {
-  height: 100%;
-  width: 0%;
+
+button:hover {
   background: white;
-  transition: width 0.4s ease;
+  color: black;
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOADER -->
-<div class="loader" id="loader">
-  <div class="loader-text">
-    RECOMMENDED TO COMPLETE ON A<br><br>
-    LAPTOP · DESKTOP · MAC
-  </div>
-</div>
-
-<!-- VIDEO -->
+<!-- BACKGROUND -->
 <video autoplay muted loop playsinline class="video-bg">
   <source src="vid.mp4" type="video/mp4">
 </video>
 <div class="overlay"></div>
 
-<section class="max-w-2xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+<!-- CONTAINER -->
+<section class="max-w-3xl mx-auto px-6 py-20">
 
-<h1 class="text-2xl sm:text-3xl tracking-[0.3em] text-center font-light">
-STRATEGY APPLICATION
-</h1>
+<!-- HEADER -->
+<div class="text-center mb-16">
+  <h1 class="text-3xl sm:text-4xl font-light tracking-[0.3em]">
+    APPLICATION
+  </h1>
 
-<p class="text-center text-white/60 mt-3 text-xs tracking-widest">
-RaminDSGN Automotive Growth Strategy
-</p>
+  <p class="text-white/50 text-xs tracking-widest mt-4">
+    RaminDSGN Automotive Growth Strategy Intake
+  </p>
 
-<p class="text-center text-white/40 mt-4 text-xs leading-relaxed max-w-lg mx-auto">
-We work with a very limited number of clients at a time. Please answer thoroughly.
-</p>
-
-<div class="progress-bar mt-10">
-  <div class="progress" id="progress"></div>
+  <p class="text-white/40 text-xs mt-6 leading-relaxed">
+    This application helps us understand your business, your positioning, and your growth potential.
+    Answer honestly and in detail.
+  </p>
 </div>
 
-<form id="form"
-action="https://formsubmit.co/ramindsgn@gmail.com"
-method="POST"
-class="mt-10 sm:mt-12 space-y-10">
+<form action="https://formsubmit.co/ramindsgn@gmail.com" method="POST" class="space-y-14">
 
 <input type="hidden" name="_subject" value="NEW STRATEGY APPLICATION">
 <input type="hidden" name="_captcha" value="false">
 
-<!-- STEPS (unchanged) -->
-<div class="step active space-y-5">
+<!-- 1 -->
+<div class="section">
+<h2 class="text-xs text-white/40 mb-6">1. BASIC INFO (IDENTITY)</h2>
+
+<div class="space-y-4">
 <input name="Full Name" placeholder="Full Name" required>
-<input name="Business Name" placeholder="Business Name">
-<input name="Position" placeholder="Your Position">
-<input name="Business Type" placeholder="Business Type">
-<input name="Location" placeholder="Location">
-<input name="Email" placeholder="Email" required>
-<input name="Phone" placeholder="Phone">
+<input name="Business Name" placeholder="Business Name (if applicable)">
+<input name="Role" placeholder="Your Role (Owner / Salesperson / Creator...)">
+<input name="Location" placeholder="Location (City, Country)">
+<input name="Email" placeholder="Email Address" required>
+</div>
 </div>
 
-<div class="step space-y-5">
-<input name="Instagram" placeholder="Instagram">
-<input name="TikTok" placeholder="TikTok">
+<!-- 2 -->
+<div class="section">
+<h2 class="text-xs text-white/40 mb-6">2. BUSINESS TYPE</h2>
+
+<select name="Business Type" class="mb-4">
+<option>Automotive Salesperson</option>
+<option>Dealership Owner</option>
+<option>Detailer</option>
+<option>Wrap / PPF Shop</option>
+<option>Performance / Tuning Shop</option>
+<option>Automotive Creator</option>
+<option>Other</option>
+</select>
+
+<textarea name="Business Description"
+placeholder="Briefly describe your business in 1–2 sentences"></textarea>
+</div>
+
+<!-- 3 -->
+<div class="section">
+<h2 class="text-xs text-white/40 mb-6">3. SOCIAL & ONLINE PRESENCE</h2>
+
+<div class="space-y-4">
+<input name="Instagram" placeholder="Instagram handle">
+<input name="TikTok" placeholder="TikTok handle">
+<input name="YouTube" placeholder="YouTube">
 <input name="Website" placeholder="Website">
-<input name="Other Platforms" placeholder="Other Platforms">
+<input name="Primary Platform" placeholder="Most important platform">
+</div>
 </div>
 
-<div class="step space-y-5">
-<textarea name="Business Description" placeholder="What does your business do?"></textarea>
-<textarea name="Services" placeholder="What do you offer?"></textarea>
-<input name="Revenue Source" placeholder="Main revenue source">
-<input name="Price Point" placeholder="Average price point">
-<input name="Years Operating" placeholder="How long operating?">
-<input name="Team" placeholder="Solo or team">
-</div>
+<!-- 4 -->
+<div class="section">
+<h2 class="text-xs text-white/40 mb-6">4. PERFORMANCE SNAPSHOT</h2>
 
-<div class="step space-y-5">
-<input name="Revenue Range" placeholder="Monthly revenue range">
-<input name="Leads" placeholder="Monthly leads">
-<input name="Sales" placeholder="Monthly sales">
+<div class="space-y-4">
 <input name="IG Followers" placeholder="Instagram followers">
-<input name="IG Views" placeholder="Avg views">
+<input name="IG Views" placeholder="Avg views per post/reel">
 <input name="TikTok Followers" placeholder="TikTok followers">
-<input name="Website Traffic" placeholder="Website traffic">
+<input name="TikTok Views" placeholder="Avg TikTok views">
+
+<input name="Leads" placeholder="Are you getting leads? (Yes/No)">
+<input name="Sales" placeholder="Are you getting sales from social? (Yes/No)">
+</div>
 </div>
 
-<div class="step space-y-5">
+<!-- 5 -->
+<div class="section">
+<h2 class="text-xs text-white/40 mb-6">5. OFFER & REVENUE</h2>
+
+<div class="space-y-4">
+<input name="Offer" placeholder="What do you sell?">
+<input name="Average Price" placeholder="Average price of your offer">
+<input name="Customer Source" placeholder="How customers find you">
+<input name="Revenue Source" placeholder="Main revenue source">
+</div>
+</div>
+
+<!-- 6 -->
+<div class="section">
+<h2 class="text-xs text-white/40 mb-6">6. MARKETING ACTIVITY</h2>
+
+<div class="space-y-4">
 <input name="Posting Frequency" placeholder="How often do you post?">
-<input name="Content Type" placeholder="Type of content">
-<input name="Content Pillars" placeholder="Content pillars?">
-<input name="Ads" placeholder="Run ads?">
-<input name="Email Marketing" placeholder="Email marketing?">
-<textarea name="Best Content" placeholder="Best content"></textarea>
-<textarea name="Worst Content" placeholder="Worst content"></textarea>
+<input name="Content Type" placeholder="Cars / Personal / Educational / Mixed">
+<input name="Ads" placeholder="Do you run ads? (Yes/No)">
+<input name="Tools" placeholder="Marketing tools (CRM, email, etc.)">
+</div>
 </div>
 
-<div class="step space-y-5">
-<input name="Social Rating" placeholder="Social (1–10)">
-<input name="Brand Rating" placeholder="Brand (1–10)">
+<!-- 7 -->
+<div class="section">
+<h2 class="text-xs text-white/40 mb-6">7. SELF-ASSESSMENT (VERY IMPORTANT)</h2>
+
+<div class="space-y-4">
+<input name="Social Rating" placeholder="Social presence (1–10)">
+<input name="Content Rating" placeholder="Content quality (1–10)">
 <input name="Consistency Rating" placeholder="Consistency (1–10)">
-<textarea name="Growth Block" placeholder="What’s holding you back?"></textarea>
+<input name="Brand Rating" placeholder="Brand clarity (1–10)">
+<input name="Lead Rating" placeholder="Ability to generate leads (1–10)">
+</div>
 </div>
 
-<div class="step space-y-5">
+<!-- 8 -->
+<div class="section">
+<h2 class="text-xs text-white/40 mb-6">8. MAIN PROBLEMS</h2>
+
+<div class="space-y-4">
+<textarea name="Biggest Struggle" placeholder="Biggest struggle right now"></textarea>
+<textarea name="Holding Back" placeholder="What is holding you back?"></textarea>
+<textarea name="Not Worked" placeholder="What has NOT worked?"></textarea>
+</div>
+</div>
+
+<!-- 9 -->
+<div class="section">
+<h2 class="text-xs text-white/40 mb-6">9. GOALS</h2>
+
+<div class="space-y-4">
+<textarea name="90 Day Goal" placeholder="90 day goal"></textarea>
+<textarea name="Long Term Goal" placeholder="6–12 month goal"></textarea>
+<textarea name="Ideal Outcome" placeholder="If everything worked perfectly..."></textarea>
+</div>
+</div>
+
+<!-- 10 -->
+<div class="section">
+<h2 class="text-xs text-white/40 mb-6">10. AUDIENCE & POSITIONING</h2>
+
+<div class="space-y-4">
 <textarea name="Ideal Customer" placeholder="Ideal customer"></textarea>
-<textarea name="Problem" placeholder="Problem you solve"></textarea>
-<textarea name="Why You" placeholder="Why choose you?"></textarea>
-<input name="Competitors" placeholder="Competitors">
+<textarea name="Why Choose You" placeholder="Why customers choose you"></textarea>
+<input name="Competitors" placeholder="2–3 competitors">
+</div>
 </div>
 
-<div class="step space-y-5">
-<input name="90 Day Goal" placeholder="90 day goal">
-<input name="Long Term Goal" placeholder="6–12 month goal">
-<input name="Growth Focus" placeholder="Growth focus">
-<textarea name="Perfect Outcome" placeholder="Perfect outcome"></textarea>
+<!-- 11 -->
+<div class="section">
+<h2 class="text-xs text-white/40 mb-6">11. GROWTH READINESS</h2>
+
+<div class="space-y-4">
+<input name="Willing to Change" placeholder="Willing to implement changes? (Yes/No)">
+<input name="Time Available" placeholder="Time to execute? (Yes/No)">
+<input name="Seriousness" placeholder="Serious about growth? (Yes/No)">
+</div>
 </div>
 
-<div class="step space-y-5">
-<textarea name="Offer" placeholder="Offer"></textarea>
-<textarea name="Sales Process" placeholder="Sales process"></textarea>
-<input name="Customer Source" placeholder="Customer source">
-<textarea name="Objections" placeholder="Objections"></textarea>
-<textarea name="Leak" placeholder="Where losing customers?"></textarea>
+<!-- 12 -->
+<div class="section">
+<h2 class="text-xs text-white/40 mb-6">12. OPTIONAL UPLOADS</h2>
+
+<textarea name="Uploads"
+placeholder="Paste links or describe uploads (analytics, posts, etc.)"></textarea>
 </div>
 
-<div class="step space-y-5">
-<input name="Change Strategy" placeholder="Willing to change?">
-<input name="Time" placeholder="Time available?">
-<input name="Budget" placeholder="Budget?">
-</div>
+<!-- SUBMIT -->
+<button type="submit"
+class="w-full border border-white py-4 tracking-widest text-sm hover:bg-white hover:text-black transition rounded-md">
 
-<div class="step space-y-5">
-<textarea name="Why RaminDSGN" placeholder="Why RaminDSGN?"></textarea>
-<textarea name="Why Apply" placeholder="Why apply?"></textarea>
-</div>
+SUBMIT APPLICATION
 
-<!-- BUTTONS -->
-<div class="flex justify-between items-center pt-10 gap-4">
-<button type="button" onclick="prevStep()" 
-class="text-white/40 text-xs tracking-widest hover:text-white transition">
-BACK
 </button>
-
-<button type="button" id="nextBtn"
-class="border border-white px-8 py-4 text-sm tracking-widest 
-hover:bg-white hover:text-black transition duration-300 
-w-full sm:w-auto text-center rounded-md">
-NEXT
-</button>
-</div>
-
-<!-- TERMS NOTICE -->
-<p class="text-white/40 text-[10px] sm:text-xs text-center tracking-wide leading-relaxed mt-6 px-2">
-  By submitting this application, you agree to our 
-  <a href="ToS.html" target="_blank" rel="noopener noreferrer"
-     class="underline hover:text-white transition">
-     Terms of Service
-  </a> 
-  and 
-  <a href="ToS.html" target="_blank" rel="noopener noreferrer"
-     class="underline hover:text-white transition">
-     Privacy Policy
-  </a>.
-</p>
 
 </form>
+
+<!-- FOOTER -->
+<div class="text-center text-white/40 text-xs mt-16 pb-10 tracking-widest">
+© 2026 RaminDSGN <br>
+Toronto, ON
+</div>
+
 </section>
-
-<footer class="text-center text-white/40 text-xs pb-10 tracking-widest">
-  © RaminDSGN <script>document.write(new Date().getFullYear())</script><br>
-  Toronto, ON
-</footer>
-
-<script>
-window.onload = () => {
-  setTimeout(() => {
-    document.getElementById("loader").classList.add("hide");
-  }, 1500);
-};
-
-let step = 0;
-const steps = document.querySelectorAll(".step");
-const progress = document.getElementById("progress");
-const btn = document.getElementById("nextBtn");
-const form = document.getElementById("form");
-
-function showStep(i){
-  steps.forEach((s, index)=> s.classList.toggle("active", index===i));
-  progress.style.width = ((i+1)/steps.length)*100+"%";
-
-  if(i === steps.length-1){
-    btn.innerText="SUBMIT";
-    btn.onclick = ()=>form.submit();
-  } else {
-    btn.innerText="NEXT";
-    btn.onclick = nextStep;
-  }
-}
-
-function nextStep(){ if(step<steps.length-1){ step++; showStep(step);} }
-function prevStep(){ if(step>0){ step--; showStep(step);} }
-
-showStep(step);
-</script>
 
 </body>
 </html>
