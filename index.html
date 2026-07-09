@@ -1,442 +1,743 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>RaminDSGN</title>
+    <!--
+    ==================================================
+    RaminDSGN
+    Premium Landing Page
+    ==================================================
+    -->
 
-<script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-html {
-  scroll-behavior: smooth;
-}
+    <title>RaminDSGN | Personalized Automotive Growth Strategy</title>
 
-body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background: black;
-  overflow-x: hidden;
-}
+    <meta
+        name="description"
+        content="Helping automotive businesses and sales professionals grow through personalized Growth Blueprints."
+    >
 
-/* Background video */
-.video-bg {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -3;
-}
+    <meta name="theme-color" content="#000000">
 
-/* Overlay */
-.overlay {
-  position: fixed;
-  inset: 0;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,120,0,0.14),
-      rgba(120,80,0,0.08),
-      rgba(0,0,0,0.95)
-    );
-  z-index: -2;
-}
+    <link rel="stylesheet" href="style.css">
 
-/* Ambient glow */
-.glow {
-  position: fixed;
-  width: 700px;
-  height: 700px;
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(255,140,0,0.12), transparent 70%);
-  filter: blur(40px);
-  z-index: -1;
-  pointer-events: none;
-  top: -250px;
-  right: -200px;
-  animation: floatGlow 10s ease-in-out infinite alternate;
-}
-
-@keyframes floatGlow {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(40px);
-  }
-}
-
-/* Fade Up */
-.fade-up {
-  opacity: 0;
-  transform: translateY(60px);
-  transition:
-    opacity 1s ease,
-    transform 1s ease;
-}
-
-.fade-up.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Fade Left */
-.fade-left {
-  opacity: 0;
-  transform: translateX(-60px);
-  transition:
-    opacity 1s ease,
-    transform 1s ease;
-}
-
-.fade-left.show {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Fade Right */
-.fade-right {
-  opacity: 0;
-  transform: translateX(60px);
-  transition:
-    opacity 1s ease,
-    transform 1s ease;
-}
-
-.fade-right.show {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Hero title */
-.hero-title {
-  letter-spacing: 0.45em;
-  line-height: 1.2;
-}
-
-/* Scroll Indicator */
-.scroll-indicator {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  cursor: pointer;
-}
-
-.scroll-track {
-  width: 2px;
-  height: 70px;
-  background: rgba(255,255,255,0.12);
-  overflow: hidden;
-  position: relative;
-  border-radius: 999px;
-}
-
-.scroll-light {
-  position: absolute;
-  width: 100%;
-  height: 20px;
-  background: white;
-  top: -20px;
-  border-radius: 999px;
-  animation: runway 2.2s linear infinite;
-}
-
-@keyframes runway {
-  0% {
-    top: -20px;
-    opacity: 0;
-  }
-
-  15% {
-    opacity: 1;
-  }
-
-  100% {
-    top: 100%;
-    opacity: 0;
-  }
-}
-
-/* Luxury Card */
-.lux-card {
-  position: relative;
-  overflow: hidden;
-  backdrop-filter: blur(4px);
-}
-
-.lux-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      120deg,
-      transparent,
-      rgba(255,255,255,0.04),
-      transparent
-    );
-
-  transform: translateX(-100%);
-  transition: transform 1s ease;
-}
-
-.lux-card:hover::before {
-  transform: translateX(100%);
-}
-
-/* Learn More Button */
-.learn-btn {
-  position: relative;
-  overflow: hidden;
-}
-
-.learn-btn span {
-  position: relative;
-  z-index: 2;
-}
-
-.learn-btn::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: white;
-  transform: translateY(100%);
-  transition: transform 0.45s ease;
-}
-
-.learn-btn:hover::before {
-  transform: translateY(0%);
-}
-
-.learn-btn:hover span {
-  color: black;
-}
-
-/* Floating line */
-.line {
-  width: 100%;
-  height: 1px;
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,0.25),
-      transparent
-    );
-}
-
-/* Mobile adjustments */
-@media (max-width: 640px) {
-
-  .hero-title {
-    letter-spacing: 0.25em;
-  }
-
-}
-</style>
 </head>
 
-<body class="text-white">
+<body>
 
-<!-- VIDEO -->
-<video autoplay muted loop playsinline class="video-bg">
-  <source src="vid.mp4" type="video/mp4">
-</video>
+    <!-- ========================================= -->
+    <!-- Background -->
+    <!-- ========================================= -->
 
-<div class="overlay"></div>
-<div class="glow"></div>
+    <video
+        class="video-bg"
+        autoplay
+        muted
+        loop
+        playsinline
+    >
+        <source src="vid.mp4" type="video/mp4">
+    </video>
 
-<!-- HERO -->
-<section class="relative min-h-screen flex flex-col items-center justify-center text-center px-6">
+    <div class="overlay"></div>
 
-  <div class="fade-up">
+    <div class="noise"></div>
 
-    <p class="text-[10px] tracking-[0.5em] text-white/40 mb-5">
-      TORONTO · AUTOMOTIVE · CREATIVE
-    </p>
+    <div class="glow"></div>
 
-    <h1 class="hero-title text-3xl sm:text-5xl md:text-7xl font-light">
-      RAMINDSGN
-    </h1>
 
-    <p class="mt-6 text-[10px] sm:text-xs tracking-[0.45em] text-white/55">
-      STRATEGY · POSITIONING · CONTENT SYSTEMS
-    </p>
 
-  </div>
 
-  <!-- SCROLL -->
-  <div class="scroll-indicator"
-       onclick="document.getElementById('socials').scrollIntoView({behavior:'smooth'})">
 
-    <div class="scroll-track">
-      <div class="scroll-light"></div>
-    </div>
+    <!-- ========================================= -->
+    <!-- Navigation -->
+    <!-- ========================================= -->
 
-  </div>
+    <header class="site-header">
 
-</section>
+        <nav class="floating-nav" aria-label="Primary">
 
-<!-- SOCIALS -->
-<section id="socials"
-class="relative bg-black/90 py-24 sm:py-32 px-6 flex flex-col items-center">
+            <a href="#hero" class="logo">
 
-  <div class="line max-w-6xl mb-20"></div>
+                RaminDSGN
 
-  <div class="grid gap-6 sm:gap-10 md:grid-cols-2 w-full max-w-4xl">
+            </a>
 
-    <!-- INSTAGRAM -->
-    <a href="https://instagram.com/ramin.dsgn"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="lux-card fade-left border border-white/15 rounded-xl
-              px-8 py-10 sm:p-14
-              hover:border-white/50 hover:bg-white/[0.03]
-              transition duration-700">
+            <div class="nav-links">
 
-      <p class="text-[10px] tracking-[0.4em] text-white/35 mb-5">
-        SOCIAL
-      </p>
+                <a href="#why">Why</a>
 
-      <h2 class="text-xl tracking-[0.18em] font-light">
-        Instagram
-      </h2>
+                <a href="#investment">Investment</a>
 
-      <p class="mt-5 text-sm text-white/50 leading-relaxed">
-        Cinematic automotive visuals, branding direction,
-        and audience-building through high-end storytelling.
-      </p>
+                <a href="#process">Process</a>
 
-    </a>
+                <a href="application.html" class="nav-cta">
 
-    <!-- TIKTOK -->
-    <a href="https://tiktok.com/@ramin.dsgn"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="lux-card fade-right border border-white/15 rounded-xl
-              px-8 py-10 sm:p-14
-              hover:border-white/50 hover:bg-white/[0.03]
-              transition duration-700">
+                    Apply
 
-      <p class="text-[10px] tracking-[0.4em] text-white/35 mb-5">
-        SOCIAL
-      </p>
+                </a>
 
-      <h2 class="text-xl tracking-[0.18em] font-light">
-        TikTok
-      </h2>
+            </div>
 
-      <p class="mt-5 text-sm text-white/50 leading-relaxed">
-        Short-form strategy, automotive storytelling,
-        and content engineered for attention.
-      </p>
+        </nav>
 
-    </a>
+    </header>
 
-  </div>
 
-</section>
 
-<!-- STRATEGY -->
-<section class="relative bg-black py-28 sm:py-36 px-6 flex justify-center">
 
-  <div class="w-full max-w-4xl border border-white/15 rounded-2xl
-              p-10 sm:p-20 text-center lux-card fade-up">
 
-    <p class="text-[10px] tracking-[0.5em] text-white/35 mb-8">
-      PRIVATE STRATEGY CONSULTING
-    </p>
+    <!-- ========================================= -->
+    <!-- Main -->
+    <!-- ========================================= -->
 
-    <h2 class="text-2xl sm:text-4xl tracking-[0.15em] font-light leading-[1.4]">
-      ENGINEER YOUR<br>
-      NEXT PHASE OF GROWTH
-    </h2>
+    <main>
 
-    <p class="mt-8 text-white/55 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
-      RaminDSGN works with select automotive brands,
-      creators, dealerships, and service businesses
-      to develop scalable content ecosystems,
-      premium positioning, and strategic growth systems.
-    </p>
 
-    <p class="mt-6 text-white/40 text-sm leading-relaxed max-w-xl mx-auto">
-      Every strategy is custom-built around your audience,
-      offer, positioning, and market potential —
-      designed to increase visibility, authority, and conversion.
-    </p>
 
-    <div class="mt-14">
 
-      <a href="strategy.html"
-         class="learn-btn inline-flex items-center justify-center
-                border border-white rounded-md
-                px-10 py-4
-                tracking-[0.25em]
-                text-xs uppercase
-                transition duration-500">
 
-        <span>
-          Learn More
-        </span>
+        <!-- ========================================= -->
+        <!-- Hero -->
+        <!-- ========================================= -->
 
-      </a>
+        <section
+            id="hero"
+            class="hero"
+        >
 
-    </div>
+            <div class="hero-inner fade-up">
 
-    <p class="mt-7 text-[10px] tracking-[0.35em] text-white/25">
-      LIMITED CLIENT CAPACITY
-    </p>
+                <p class="hero-label">
 
-  </div>
+                    TORONTO • AUTOMOTIVE • STRATEGY
 
-</section>
+                </p>
 
-<!-- FOOTER -->
-<footer class="bg-black text-center text-white/35 text-[10px] sm:text-xs py-10 tracking-[0.35em]">
+                <h1 class="hero-title">
 
-  © <script>document.write(new Date().getFullYear())</script> RaminDSGN
-  <br><br>
-  Toronto, ON
+                    RaminDSGN
 
-</footer>
+                </h1>
 
-<script>
-/* Reveal Animations */
-const animated = document.querySelectorAll(
-  '.fade-up, .fade-left, .fade-right'
-);
+                <h2 class="hero-subtitle">
 
-const observer = new IntersectionObserver((entries) => {
+                    Personalized Automotive Growth Strategy
 
-  entries.forEach((entry) => {
+                </h2>
 
-    if(entry.isIntersecting){
-      entry.target.classList.add('show');
-    }
+                <p class="hero-description">
 
-  });
+                    Helping automotive businesses and sales professionals
+                    grow through personalized marketing strategies
+                    and actionable Growth Blueprints.
 
-}, {
-  threshold: 0.15
-});
+                </p>
 
-animated.forEach((el) => observer.observe(el));
+                <p class="hero-handle">
 
-/* Slight parallax glow */
-window.addEventListener('mousemove', (e) => {
+                    @ramin.dsgn
 
-  const glow = document.querySelector('.glow');
+                </p>
 
-  const x = (window.innerWidth - e.pageX * 0.7);
-  const y = (window.innerHeight - e.pageY * 0.7);
+            </div>
 
-  glow.style.transform =
-    `translate(${x / 90}px, ${y / 90}px)`;
 
-});
-</script>
+
+            <div class="scroll-indicator">
+
+                <div class="scroll-track">
+
+                    <div class="scroll-light"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+
+        <!-- ========================================= -->
+        <!-- Intro -->
+        <!-- ========================================= -->
+
+        <section
+            id="why"
+            class="intro-section"
+        >
+
+            <div class="container">
+
+                <div class="editorial-grid">
+
+                    <div class="editorial-left fade-left">
+
+                        <p class="section-kicker">
+
+                            WHY RAMINDSGN
+
+                        </p>
+
+                        <h2>
+
+                            Every Automotive Business
+                            Deserves Its Own Strategy.
+
+                        </h2>
+
+                    </div>
+
+                    <div class="editorial-right fade-right">
+
+                        <p>
+
+                            There is no universal formula for growth.
+                            Every dealership, salesperson, detailer,
+                            wrap shop, and automotive brand operates
+                            in a different market with different
+                            opportunities.
+
+                        </p>
+
+                        <br>
+
+                        <p>
+
+                            Rather than offering generic advice,
+                            RaminDSGN develops personalized Growth
+                            Blueprints built around your current
+                            position, your audience, your goals,
+                            and your competitive landscape.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+
+        <!-- ========================================= -->
+        <!-- Philosophy -->
+        <!-- ========================================= -->
+
+        <section class="philosophy">
+
+            <div class="container">
+
+                <div class="statement fade-up">
+
+                    <span>
+
+                        PERSONALIZED
+
+                    </span>
+
+                    <span>
+
+                        STRATEGIC
+
+                    </span>
+
+                    <span>
+
+                        AUTOMOTIVE
+
+                    </span>
+
+                </div>
+
+                <p class="statement-copy fade-up">
+
+                    Every recommendation is designed to be practical,
+                    measurable, and aligned with the long-term growth
+                    of your business—not short-term trends.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+
+
+        <!-- ========================================= -->
+        <!-- Features -->
+        <!-- ========================================= -->
+
+        <section class="features">
+
+            <div class="container">
+
+                <article class="feature-card fade-up">
+
+                    <div class="feature-number">
+
+                        01
+
+                    </div>
+
+                    <div class="feature-content">
+
+                        <h3>
+
+                            Personalized Strategy
+
+                        </h3>
+
+                        <p>
+
+                            Every Growth Blueprint is developed
+                            specifically around your business,
+                            objectives, and market.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="feature-card fade-up">
+
+                    <div class="feature-number">
+
+                        02
+
+                    </div>
+
+                    <div class="feature-content">
+
+                        <h3>
+
+                            Industry Focus
+
+                        </h3>
+
+                        <p>
+
+                            Built exclusively for automotive
+                            businesses and sales professionals,
+                            not generic online businesses.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="feature-card fade-up">
+
+                    <div class="feature-number">
+
+                        03
+
+                    </div>
+
+                    <div class="feature-content">
+
+                        <h3>
+
+                            Actionable Growth
+
+                        </h3>
+
+                        <p>
+
+                            Receive practical recommendations
+                            that can be implemented immediately
+                            to improve visibility, positioning,
+                            and long-term growth.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+
+                <article class="feature-card fade-up">
+
+                    <div class="feature-number">
+
+                        04
+
+                    </div>
+
+                    <div class="feature-content">
+
+                        <h3>
+
+                            Professionally Reviewed
+
+                        </h3>
+
+                        <p>
+
+                            Every Growth Blueprint is personally
+                            reviewed before delivery to ensure
+                            clarity, consistency, and quality.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+
+
+        <!-- ========================================= -->
+        <!-- Investment -->
+        <!-- ========================================= -->
+
+        <section
+            id="investment"
+            class="investment"
+        >
+
+            <div class="container">
+
+                <p class="section-kicker fade-up">
+
+                    INVESTMENT
+
+                </p>
+
+                <h2 class="investment-price fade-up">
+
+                    Starting at
+
+                    <span>
+
+                        $230 CAD
+
+                    </span>
+
+                </h2>
+
+                <p class="investment-copy fade-up">
+
+                    One personalized Growth Blueprint containing
+                    tailored recommendations designed specifically
+                    for your business.
+
+                </p>
+
+                <a
+                    href="application.html"
+                    class="primary-button fade-up"
+                >
+
+                    Apply Now
+
+                </a>
+
+            </div>
+
+        </section>
+        <!-- ========================================= -->
+        <!-- The Process -->
+        <!-- ========================================= -->
+
+        <section
+            id="process"
+            class="process"
+        >
+
+            <div class="container">
+
+                <div class="process-heading fade-up">
+
+                    <p class="section-kicker">
+
+                        THE PROCESS
+
+                    </p>
+
+                    <h2>
+
+                        Your Growth Blueprint
+                        Begins Here.
+
+                    </h2>
+
+                </div>
+
+                <div class="timeline">
+
+                    <article class="timeline-item fade-left">
+
+                        <div class="timeline-number">
+                            01
+                        </div>
+
+                        <div class="timeline-content">
+
+                            <h3>
+                                Apply
+                            </h3>
+
+                            <p>
+
+                                Complete a short application describing
+                                your business, your current marketing,
+                                and where you want to grow.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                    <article class="timeline-item fade-right">
+
+                        <div class="timeline-number">
+                            02
+                        </div>
+
+                        <div class="timeline-content">
+
+                            <h3>
+                                Analysis
+                            </h3>
+
+                            <p>
+
+                                Your business is carefully reviewed to
+                                identify opportunities, weaknesses,
+                                positioning gaps, and untapped potential.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                    <article class="timeline-item fade-left">
+
+                        <div class="timeline-number">
+                            03
+                        </div>
+
+                        <div class="timeline-content">
+
+                            <h3>
+                                Growth Blueprint
+                            </h3>
+
+                            <p>
+
+                                A personalized Growth Blueprint is
+                                developed specifically around your
+                                business, audience, goals, and market.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                    <article class="timeline-item fade-right">
+
+                        <div class="timeline-number">
+                            04
+                        </div>
+
+                        <div class="timeline-content">
+
+                            <h3>
+                                Delivery
+                            </h3>
+
+                            <p>
+
+                                After a final professional review,
+                                your completed Growth Blueprint is
+                                delivered as a premium PDF ready to
+                                implement immediately.
+
+                            </p>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+
+        <!-- ========================================= -->
+        <!-- Final CTA -->
+        <!-- ========================================= -->
+
+        <section
+            class="final-cta"
+            id="cta"
+        >
+
+            <div class="container">
+
+                <div class="cta-content fade-up">
+
+                    <p class="section-kicker">
+
+                        LIMITED CLIENT CAPACITY
+
+                    </p>
+
+                    <h2>
+
+                        Ready to Grow?
+
+                    </h2>
+
+                    <p>
+
+                        Every Growth Blueprint is created specifically
+                        around your business. No templates. No generic
+                        advice. Just a personalized strategy designed
+                        to help you move forward with confidence.
+
+                    </p>
+
+                    <a
+                        href="application.html"
+                        class="primary-button"
+                    >
+
+                        Apply Now
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+
+
+    <!-- ========================================= -->
+    <!-- Footer -->
+    <!-- ========================================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-line"></div>
+
+            <div class="footer-grid">
+
+                <div class="footer-brand">
+
+                    <h3>
+
+                        RaminDSGN
+
+                    </h3>
+
+                    <p>
+
+                        Personalized Automotive
+                        Growth Strategy
+
+                    </p>
+
+                </div>
+
+                <div class="footer-links">
+
+                    <a href="#hero">
+
+                        Home
+
+                    </a>
+
+                    <a href="application.html">
+
+                        Apply
+
+                    </a>
+
+                    <a href="tos.html">
+
+                        Terms of Service
+
+                    </a>
+
+                    <a href="privacy.html">
+
+                        Privacy Policy
+
+                    </a>
+
+                </div>
+
+                <div class="footer-meta">
+
+                    <p>
+
+                        @ramin.dsgn
+
+                    </p>
+
+                    <p>
+
+                        Toronto, ON
+
+                    </p>
+
+                    <p>
+
+                        © 2026 RaminDSGN
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
