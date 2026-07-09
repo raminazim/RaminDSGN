@@ -1738,3 +1738,519 @@ REDUCED MOTION
     line-height:2;
 
 }
+
+/* ==========================================================
+   APPLICATION PAGE
+========================================================== */
+
+.application-page{
+    padding:10rem 0 7rem;
+}
+
+.application-header{
+    max-width:900px;
+    margin:0 auto 4rem;
+    text-align:center;
+}
+
+.application-header h1{
+    font-size:clamp(3rem,6vw,5.5rem);
+    font-weight:200;
+    line-height:1;
+    margin-bottom:2rem;
+}
+
+.application-description{
+    max-width:700px;
+    margin:0 auto;
+    color:var(--text-soft);
+    line-height:2;
+}
+
+
+/* ==========================================================
+   PROGRESS
+========================================================== */
+
+.progress-wrapper{
+
+    margin:4rem auto;
+
+    max-width:900px;
+
+}
+
+.progress-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:1rem;
+
+    color:var(--text-muted);
+
+    font-size:.9rem;
+
+}
+
+.progress-bar{
+
+    height:8px;
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+}
+
+.progress-fill{
+
+    width:0%;
+
+    height:100%;
+
+    background:white;
+
+    transition:.45s ease;
+
+}
+
+.estimated-time{
+
+    margin-top:1rem;
+
+    color:var(--text-muted);
+
+}
+
+
+/* ==========================================================
+   FORM
+========================================================== */
+
+#applicationForm{
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+.form-section{
+
+    display:none;
+
+    animation:fadeSection .6s ease;
+
+}
+
+.form-section.active{
+
+    display:block;
+
+}
+
+.form-title{
+
+    font-size:2rem;
+
+    font-weight:300;
+
+    margin-bottom:2.5rem;
+
+}
+
+.field-group{
+
+    margin-bottom:2rem;
+
+}
+
+.field-group label{
+
+    display:block;
+
+    margin-bottom:.75rem;
+
+    color:white;
+
+    font-weight:300;
+
+}
+
+.field-description{
+
+    color:var(--text-muted);
+
+    margin-top:.5rem;
+
+    font-size:.9rem;
+
+}
+
+
+/* ==========================================================
+   INPUTS
+========================================================== */
+
+input,
+textarea,
+select{
+
+    width:100%;
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:white;
+
+    border-radius:16px;
+
+    padding:1rem 1.2rem;
+
+    font-size:1rem;
+
+    transition:var(--transition);
+
+    backdrop-filter:blur(12px);
+
+    -webkit-backdrop-filter:blur(12px);
+
+}
+
+textarea{
+
+    min-height:170px;
+
+    resize:vertical;
+
+}
+
+input::placeholder,
+textarea::placeholder{
+
+    color:rgba(255,255,255,.35);
+
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+
+    outline:none;
+
+    border-color:white;
+
+    background:rgba(255,255,255,.05);
+
+}
+
+
+/* ==========================================================
+   RADIO + CHECKBOX GRID
+========================================================== */
+
+.option-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:1rem;
+
+}
+
+.option{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:.85rem;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.03);
+
+    padding:1rem;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+.option:hover{
+
+    border-color:rgba(255,255,255,.2);
+
+    background:rgba(255,255,255,.05);
+
+}
+
+.option input{
+
+    width:auto;
+
+}
+
+
+/* ==========================================================
+   FILE UPLOAD
+========================================================== */
+
+.upload-area{
+
+    border:2px dashed rgba(255,255,255,.18);
+
+    border-radius:22px;
+
+    padding:4rem 2rem;
+
+    text-align:center;
+
+    color:var(--text-soft);
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+.upload-area:hover{
+
+    border-color:white;
+
+    background:rgba(255,255,255,.03);
+
+}
+
+.upload-area input{
+
+    display:none;
+
+}
+
+
+/* ==========================================================
+   NAVIGATION
+========================================================== */
+
+.form-navigation{
+
+    margin-top:4rem;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:1rem;
+
+}
+
+.secondary-button{
+
+    border:1px solid rgba(255,255,255,.15);
+
+    background:transparent;
+
+    color:white;
+
+    border-radius:999px;
+
+    padding:18px 40px;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+.secondary-button:hover{
+
+    background:white;
+
+    color:black;
+
+}
+
+#submitBtn{
+
+    display:none;
+
+}
+
+
+/* ==========================================================
+   SUCCESS SCREEN
+========================================================== */
+
+.success-screen{
+
+    display:none;
+
+    text-align:center;
+
+    padding:8rem 0;
+
+}
+
+.success-screen.show{
+
+    display:block;
+
+    animation:fadeSection .8s ease;
+
+}
+
+.success-content{
+
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+.success-icon{
+
+    width:90px;
+
+    height:90px;
+
+    margin:0 auto 2rem;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:2rem;
+
+}
+
+.success-content h2{
+
+    font-size:clamp(3rem,6vw,5rem);
+
+    font-weight:200;
+
+    margin-bottom:2rem;
+
+}
+
+.success-content p{
+
+    color:var(--text-soft);
+
+    line-height:2;
+
+}
+
+
+/* ==========================================================
+   LOADING BUTTON
+========================================================== */
+
+.loading{
+
+    opacity:.7;
+
+    pointer-events:none;
+
+}
+
+.loading::after{
+
+    content:"";
+
+    width:18px;
+
+    height:18px;
+
+    margin-left:12px;
+
+    border:2px solid rgba(255,255,255,.3);
+
+    border-top-color:white;
+
+    border-radius:50%;
+
+    display:inline-block;
+
+    animation:spin .8s linear infinite;
+
+}
+
+
+/* ==========================================================
+   ANIMATIONS
+========================================================== */
+
+@keyframes spin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+@keyframes fadeSection{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media(max-width:768px){
+
+    .form-navigation{
+
+        flex-direction:column;
+
+    }
+
+    .primary-button,
+    .secondary-button{
+
+        width:100%;
+
+    }
+
+    .option-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
