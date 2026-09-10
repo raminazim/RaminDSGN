@@ -3,321 +3,85 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RaminDSGN</title>
+    <meta name="theme-color" content="#10100f" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>RaminDSGN | Website under maintenance</title>
     <meta
       name="description"
-      content="RaminDSGN helps automotive businesses grow through clear marketing growth strategy and brand positioning."
+      content="RaminDSGN builds focused marketing systems for ambitious automotive businesses."
     />
-    <style>
-      :root {
-        --bg: #f5f1ea;
-        --panel: #f9f6f2;
-        --text: #171717;
-        --muted: #5f5a56;
-        --line: rgba(23, 23, 23, 0.12);
-        --accent: #a86a3d;
-      }
-
-      * { box-sizing: border-box; }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        margin: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        line-height: 1.6;
-      }
-
-      .wrap {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: 24px 28px 64px;
-      }
-
-      header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 18px 0 32px;
-        border-bottom: 1px solid var(--line);
-      }
-
-      .brand {
-        font-size: 1.1rem;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        font-weight: 700;
-      }
-
-      nav {
-        display: flex;
-        gap: 22px;
-        flex-wrap: wrap;
-      }
-
-      nav a {
-        color: var(--text);
-        text-decoration: none;
-        font-size: 0.82rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        opacity: 0.8;
-      }
-
-      .hero {
-        display: grid;
-        grid-template-columns: 1.25fr 0.75fr;
-        gap: 44px;
-        align-items: center;
-        padding: 72px 0 42px;
-      }
-
-      .eyebrow {
-        font-size: 0.74rem;
-        letter-spacing: 0.16em;
-        text-transform: uppercase;
-        color: var(--muted);
-        margin-bottom: 18px;
-      }
-
-      h1 {
-        font-size: clamp(2.5rem, 5vw, 5rem);
-        line-height: 0.96;
-        letter-spacing: -0.06em;
-        margin: 0 0 18px;
-        font-weight: 700;
-      }
-
-      .lead {
-        max-width: 620px;
-        font-size: 1.08rem;
-        color: var(--muted);
-        margin: 0 0 28px;
-      }
-
-      .actions {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 14px;
-      }
-
-      .button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 14px 22px;
-        border-radius: 999px;
-        text-decoration: none;
-        transition: all 0.2s ease;
-        border: 1px solid var(--text);
-        font-size: 0.78rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
-
-      .button.primary {
-        background: var(--text);
-        color: #f7f5f2;
-      }
-
-      .button.secondary {
-        background: transparent;
-        color: var(--text);
-      }
-
-      .button:hover {
-        transform: translateY(-1px);
-      }
-
-      .card {
-        background: rgba(255,255,255,0.18);
-        border: 1px solid var(--line);
-        border-radius: 28px;
-        padding: 24px;
-      }
-
-      .stat-block {
-        display: grid;
-        gap: 18px;
-      }
-
-      .stat {
-        border-bottom: 1px solid var(--line);
-        padding-bottom: 14px;
-      }
-
-      .stat:last-child {
-        border-bottom: none;
-        padding-bottom: 0;
-      }
-
-      .stat strong {
-        display: block;
-        font-size: clamp(1.8rem, 3vw, 2.8rem);
-        letter-spacing: -0.05em;
-        margin-bottom: 6px;
-      }
-
-      .stat span {
-        color: var(--muted);
-        font-size: 0.9rem;
-      }
-
-      section {
-        padding-top: 18px;
-      }
-
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 20px;
-        margin-top: 24px;
-      }
-
-      .service {
-        background: var(--panel);
-        border: 1px solid var(--line);
-        border-radius: 22px;
-        padding: 24px;
-      }
-
-      .service .number {
-        display: inline-block;
-        font-size: 0.72rem;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        color: var(--muted);
-        margin-bottom: 18px;
-      }
-
-      .service h3 {
-        margin: 0 0 10px;
-        font-size: 1.38rem;
-        letter-spacing: -0.04em;
-      }
-
-      .service p {
-        margin: 0;
-        color: var(--muted);
-      }
-
-      .cta {
-        border-top: 1px solid var(--line);
-        margin-top: 54px;
-        padding-top: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-        flex-wrap: wrap;
-      }
-
-      .cta h2 {
-        margin: 0;
-        font-size: clamp(1.8rem, 3vw, 3rem);
-        letter-spacing: -0.05em;
-      }
-
-      @media (max-width: 760px) {
-        header {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 14px;
-        }
-
-        .hero,
-        .grid {
-          grid-template-columns: 1fr;
-        }
-
-        .hero {
-          padding-top: 44px;
-        }
-
-        .wrap {
-          padding-left: 18px;
-          padding-right: 18px;
-        }
-      }
-    </style>
   </head>
   <body>
-    <div class="wrap">
-      <header>
-        <div class="brand">RaminDSGN</div>
-        <nav>
-          <a href="#about">About</a>
-          <a href="#strategy">Strategy</a>
-          <a href="#contact">Contact</a>
+    <div class="scroll-progress" aria-hidden="true"><span></span></div>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="RaminDSGN home"><img src="LogoTransparent.png" alt="RaminDSGN" /></a>
+        <div class="maintenance-notice"><span></span> Website under maintenance</div>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu <span></span></button>
+        <nav id="site-nav" class="site-nav" aria-label="Main navigation">
+          <a href="#work">01 / Work</a>
+          <a href="#approach">02 / Approach</a>
+          <a href="#contact">03 / Contact</a>
         </nav>
       </header>
 
-      <main>
-        <section class="hero" id="about">
-          <div>
-            <div class="eyebrow">Marketing growth strategy</div>
-            <h1>Helping automotive businesses grow with clarity.</h1>
-            <p class="lead">
-              RaminDSGN builds focused marketing systems that turn attention into demand,
-              helping modern automotive brands stand out, convert more leads, and scale sustainably.
-            </p>
-            <div class="actions">
-              <a class="button primary" href="mailto:ramin.dsgn@gmail.com">Email Ramin</a>
-              <a class="button secondary" href="https://instagram.com/ramin.dsgn" target="_blank" rel="noreferrer">Instagram</a>
-            </div>
+      <main id="top">
+        <section class="hero section-grid" aria-labelledby="hero-title">
+          <div class="hero-copy reveal">
+            <h1 id="hero-title">Make your next move <em>obvious.</em></h1>
+            <p class="hero-intro">RaminDSGN builds clear brands and practical marketing systems for automotive businesses ready to leave the noise behind.</p>
+            <a class="text-link" href="#contact">Start a conversation <span aria-hidden="true">↗</span></a>
           </div>
-
-          <aside class="card">
-            <div class="stat-block">
-              <div class="stat">
-                <strong>Brand</strong>
-                <span>Positioning that speaks directly to your ideal customer.</span>
-              </div>
-              <div class="stat">
-                <strong>Growth</strong>
-                <span>Strategy built for lead generation and sustainable expansion.</span>
-              </div>
-              <div class="stat">
-                <strong>Sales</strong>
-                <span>Clear systems that help automotive businesses convert better.</span>
-              </div>
-            </div>
-          </aside>
-        </section>
-
-        <section id="strategy">
-          <div class="eyebrow">What I do</div>
-          <div class="grid">
-            <article class="service">
-              <span class="number">01</span>
-              <h3>Growth strategy</h3>
-              <p>Sharper positioning, smarter offers, and practical plans built around real business goals.</p>
-            </article>
-            <article class="service">
-              <span class="number">02</span>
-              <h3>Brand direction</h3>
-              <p>Creative thinking that aligns your message, identity, and customer experience.</p>
-            </article>
-            <article class="service">
-              <span class="number">03</span>
-              <h3>Automotive focus</h3>
-              <p>Specialized support for automotive businesses looking to attract better leads and stronger growth.</p>
-            </article>
+          <div class="hero-mark reveal reveal-delay" aria-hidden="true">
+            <div class="orbit orbit-one"></div>
+            <div class="orbit orbit-two"></div>
+            <img class="hero-logo" src="LogoTransparent.png" alt="" />
+          </div>
+          <div class="hero-meta reveal">
+            <span>Based in Toronto</span>
+            <span class="scroll-note">Scroll to explore <b>↓</b></span>
           </div>
         </section>
 
-        <section class="cta" id="contact">
-          <h2>Ready to grow smarter?</h2>
-          <div class="actions">
-            <a class="button primary" href="mailto:ramin.dsgn@gmail.com">ramin.dsgn@gmail.com</a>
-            <a class="button secondary" href="https://instagram.com/ramin.dsgn" target="_blank" rel="noreferrer">@ramin.dsgn</a>
+        <section class="manifesto reveal" id="about">
+          <p class="kicker">A sharper point of view</p>
+          <h2>Good marketing is not louder.<br /><span>It is more certain.</span></h2>
+          <p>Every project starts by finding the one thing your audience needs to understand, believe, and act on. Then we build the system around it.</p>
+        </section>
+
+        <section class="work-section" id="work" aria-labelledby="work-title">
+          <div class="section-heading reveal">
+            <p class="kicker">What is taking shape</p>
+            <h2 id="work-title">Built for <em>momentum.</em></h2>
           </div>
+          <div class="service-list">
+            <article class="service-row reveal"><span class="service-number">01</span><h3>Positioning</h3><p>Find the clearest place in the market and make it yours.</p><span class="service-arrow">↗</span></article>
+            <article class="service-row reveal"><span class="service-number">02</span><h3>Brand direction</h3><p>Turn the strategy into a visual and verbal identity people remember.</p><span class="service-arrow">↗</span></article>
+            <article class="service-row reveal"><span class="service-number">03</span><h3>Growth systems</h3><p>Create a repeatable path from attention to qualified demand.</p><span class="service-arrow">↗</span></article>
+          </div>
+        </section>
+
+        <section class="approach section-grid" id="approach">
+          <div class="section-heading reveal"><p class="kicker">The approach</p><h2>Less guesswork.<br /><em>More signal.</em></h2></div>
+          <div class="approach-copy reveal"><p>Strategy should make decisions easier. We combine honest diagnosis, strong creative direction, and a plan your team can actually use.</p><a class="text-link" href="#contact">See what is possible <span aria-hidden="true">↗</span></a></div>
+        </section>
+
+        <section class="contact-section reveal" id="contact" aria-labelledby="contact-title">
+          <p class="kicker">Have a challenge?</p>
+          <h2 id="contact-title">Let’s make it<br /><em>make sense.</em></h2>
+          <a class="contact-email" href="https://instagram.com/ramin.dsgn" target="_blank" rel="noreferrer">Get in touch now <span>↗</span></a>
         </section>
       </main>
+
+      <footer class="site-footer">
+        <div class="footer-top"><a class="brand" href="#top" aria-label="RaminDSGN home"><img src="LogoTransparent.png" alt="RaminDSGN" /></a><p>Clear thinking for ambitious automotive brands.</p><a class="footer-social" href="https://instagram.com/ramin.dsgn" target="_blank" rel="noreferrer">Instagram ↗</a></div>
+        <div class="footer-bottom"><span>© 2026 RaminDSGN</span><div><a href="#privacy">Privacy</a><a href="#terms">Terms</a></div><span>Toronto / Canada</span></div>
+        <div class="legal-notes"><article id="privacy"><h3>Privacy policy</h3><p>RaminDSGN only collects information you choose to share through a direct enquiry. It is used to reply to your message and provide services. Your information is not sold or shared for advertising. You may request access or deletion at any time through the contact method provided on this website.</p></article><article id="terms"><h3>Terms of service</h3><p>This website provides general information about RaminDSGN. Project scope, fees, timelines, deliverables, and rights are agreed in writing before work begins. Content is provided as-is, and neither party is bound by a service relationship until a written agreement is accepted.</p></article></div>
+      </footer>
     </div>
   </body>
 </html>
