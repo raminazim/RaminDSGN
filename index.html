@@ -36,9 +36,10 @@
     h1, h2, h3 { font-weight: 300; text-wrap: balance; }
     p { text-wrap: pretty; }
     .container { width: min(var(--width), calc(100% - var(--gutter) * 2)); margin-inline: auto; }
-    .page-loader { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; background: var(--background); opacity: 1; visibility: visible; transition: opacity .8s var(--ease), visibility 0s linear 0s; }
-    .page-loader.is-hidden { opacity: 0; visibility: hidden; transition-delay: 0s, .8s; pointer-events: none; }
-    .page-loader img { width: clamp(7rem, 18vw, 12rem); height: auto; filter: brightness(0) invert(1); }
+    .page-loader { position: fixed; inset: 0; z-index: 200; display: grid; min-width: 100%; min-height: 100vh; min-height: 100svh; min-height: 100dvh; place-items: center; overflow: hidden; padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); background: var(--background); opacity: 1; visibility: visible; transition: opacity 1.2s var(--ease), visibility 0s linear 0s; }
+    .page-loader::before { content: ""; position: absolute; inset: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 45%, rgba(205,214,228,.09), transparent 36%), radial-gradient(circle at 50% 50%, rgba(255,255,255,.035), transparent 68%); background-size: 140% 140%; animation: loader-drift 5s ease-in-out infinite alternate; }
+    .page-loader.is-hidden { opacity: 0; visibility: hidden; transition-delay: 0s, 1.2s; pointer-events: none; }
+    .page-loader img { position: relative; z-index: 1; width: clamp(7rem, 18vw, 12rem); height: auto; filter: brightness(0) invert(1); animation: loader-breathe 2.4s ease-in-out infinite; }
     .eyebrow { color: var(--muted); font-size: .65rem; font-weight: 400; line-height: 1.6; letter-spacing: .22em; text-transform: uppercase; }
     .section-heading { font-size: clamp(2.7rem, 6.5vw, 6rem); line-height: 1.07; letter-spacing: -.055em; }
     .body-copy { color: var(--muted); font-size: clamp(1rem, 1.5vw, 1.15rem); line-height: 1.9; }
@@ -117,6 +118,8 @@
     .reveal.is-pending { opacity: 0; transform: translate3d(0, 22px, 0); }
     .reveal { transition: opacity 1s var(--ease), transform 1s var(--ease); transition-delay: var(--delay, 0ms); }
     @keyframes appear { from { opacity: 0; transform: translate3d(0, 18px, 0); } to { opacity: 1; transform: translate3d(0, 0, 0); } }
+    @keyframes loader-breathe { 0%, 100% { opacity: .72; transform: scale(.96); } 50% { opacity: 1; transform: scale(1); } }
+    @keyframes loader-drift { from { transform: scale(1); opacity: .7; } to { transform: scale(1.08); opacity: 1; } }
     @keyframes scroll-pulse { 0%, 100% { opacity: .3; transform: scaleY(.8); } 50% { opacity: .8; transform: scaleY(1); } }
     /* Pointer enhancement */
     .cursor { position: fixed; top: 0; left: 0; z-index: 99; width: 0; height: 0; pointer-events: none; opacity: 0; transition: opacity .2s ease; }
@@ -581,7 +584,7 @@
       const forcedColors = window.matchMedia("(forced-colors: active)");
       const pageLoader = document.getElementById("page-loader");
       const loaderStartedAt = performance.now();
-      const loaderMinimumDuration = 3000;
+      const loaderMinimumDuration = 1800;
       function hidePageLoader() {
         pageLoader.classList.add("is-hidden");
         pageLoader.setAttribute("aria-hidden", "true");
