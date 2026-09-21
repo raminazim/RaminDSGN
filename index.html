@@ -36,6 +36,9 @@
     h1, h2, h3 { font-weight: 300; text-wrap: balance; }
     p { text-wrap: pretty; }
     .container { width: min(var(--width), calc(100% - var(--gutter) * 2)); margin-inline: auto; }
+    .page-loader { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; background: var(--background); opacity: 1; visibility: visible; transition: opacity .8s var(--ease), visibility 0s linear 0s; }
+    .page-loader.is-hidden { opacity: 0; visibility: hidden; transition-delay: 0s, .8s; pointer-events: none; }
+    .page-loader img { width: clamp(7rem, 18vw, 12rem); height: auto; filter: brightness(0) invert(1); }
     .eyebrow { color: var(--muted); font-size: .65rem; font-weight: 400; line-height: 1.6; letter-spacing: .22em; text-transform: uppercase; }
     .section-heading { font-size: clamp(2.7rem, 6.5vw, 6rem); line-height: 1.07; letter-spacing: -.055em; }
     .body-copy { color: var(--muted); font-size: clamp(1rem, 1.5vw, 1.15rem); line-height: 1.9; }
@@ -154,6 +157,9 @@
   </style>
 </head>
 <body>
+  <div class="page-loader" id="page-loader" role="status" aria-label="Loading RaminDSGN">
+    <img src="LogoTransparent.gif" alt="RaminDSGN logo" width="192" height="192">
+  </div>
   <a class="skip-link" href="#about">Skip to content</a>
   <div class="ambient" aria-hidden="true"><div class="ambient-light"></div></div>
   <div class="cursor" aria-hidden="true"><span class="cursor-ring"></span><span class="cursor-dot"></span></div>
@@ -573,6 +579,19 @@
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
       const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
       const forcedColors = window.matchMedia("(forced-colors: active)");
+      const pageLoader = document.getElementById("page-loader");
+      const loaderStartedAt = performance.now();
+      const loaderMinimumDuration = 3000;
+      function hidePageLoader() {
+        pageLoader.classList.add("is-hidden");
+        pageLoader.setAttribute("aria-hidden", "true");
+      }
+      function finishPageLoad() {
+        const remainingTime = Math.max(0, loaderMinimumDuration - (performance.now() - loaderStartedAt));
+        window.setTimeout(hidePageLoader, remainingTime);
+      }
+      if (document.readyState === "complete") finishPageLoad();
+      else window.addEventListener("load", finishPageLoad, { once: true });
       // Open linked legal text, including direct links, with native details fallback.
       function openLegalDocument() {
         const id = window.location.hash.slice(1);
@@ -582,13 +601,16 @@
         panel.querySelector("summary").focus({ preventScroll: true });
         panel.scrollIntoView({ block: "start" });
       }
-      document.querySelector(".legal-links").addEventListener("click", (event) => {
-        const link = event.target.closest("a");
-        if (!link) return;
-        const panel = document.querySelector(link.getAttribute("href"));
-        if (panel) panel.open = true;
-        if (link.hash === window.location.hash) openLegalDocument();
-      });
+      const legalLinks = document.querySelector(".legal-links");
+      if (legalLinks) {
+        legalLinks.addEventListener("click", (event) => {
+          const link = event.target.closest("a");
+          if (!link) return;
+          const panel = document.querySelector(link.getAttribute("href"));
+          if (panel) panel.open = true;
+          if (link.hash === window.location.hash) openLegalDocument();
+        });
+      }
       window.addEventListener("hashchange", openLegalDocument);
       openLegalDocument();
       // Current copyright year.
