@@ -673,7 +673,7 @@
           if (!response.ok || !succeeded) {
             throw new Error(result.message || "The inquiry could not be sent.");
           }
-          status.textContent = "Thanks! Your inquiry has been sent to RaminDSGN.";
+          status.textContent = "Thanks! Your inquiry has been sent to RaminDSGN. Expect a response wthin 48 hours.";
           form.reset();
         } catch (error) {
           status.textContent = error instanceof Error
